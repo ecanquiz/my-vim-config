@@ -1,0 +1,649 @@
+========
+My Tutor
+========
+
+Pulsando <ESC> se vuelve al modo Normal o cancela un mandato 
+no deseado o incompleto.
+
+Siempre antes de hacer cualquier cosa, pulse la tecla <ESC> 
+(para asegurarse de que está en modo Normal).
+
+----------------------
+MOVIMIENTOS DEL CURSOR
+
+      ^
+      k       Indicación: La tecla h está a la izquierda y mueve a la izquierda.
+ < h     l >              La tecla l está a la derecha y mueve a la derecha.
+      j                   La tecla j parece una flecha que apunta hacia abajo.
+      v
+
+--------------------------
+ENTRANDO Y SALIENDO DE VIM
+
+:q  <INTRO>              Provoca la salida del editor.
+
+:q! <INTRO>              Provoca la salida del editor SIN guardar ningún cambio.
+
+:wq <INTRO>              Si quiere guardar los cambios y salir escriba.
+
+--------------------------
+EDICIÓN DE TEXTO - BORRADO
+
+Estando en modo Normal pulse x para borrar el carácter sobre el cursor.
+
+--------------------------
+EDICIÓN DE TEXTO - INSERCIÓN
+
+Estando en modo Normal pulse  i  para insertar texto.
+
+--------------------
+MANDATOS PARA BORRAR
+
+Escriba dw para borrar hasta el final de una palabra
+
+------------------------
+MÁS MANDATOS PARA BORRAR
+
+Escriba  d$  para borrar hasta el final de la línea.
+
+------------------------
+SOBRE MANDATOS Y OBJETOS
+
+El formato del mandato de borrar   d   es como sigue:
+
+         [número]   d   objeto      O        d   [número]   objeto
+  donde:
+   número - es cuántas veces se ha de ejecutar el mandato (opcional, defecto=1).
+   d - es el mandato para borrar.
+   objeto - es sobre lo que el mandato va a operar (lista, abajo).
+
+  Una lista corta de objetos:
+   w - desde el cursor hasta el final de la palabra, incluyendo el espacio.
+   e - desde el cursor hasta el final de la palabra, SIN incluir el espacio.
+   $ - desde el cursor hasta el final de la línea.
+
+NOTE: Para los aventureros, pulsando sólo el objeto estando en modo Normal
+      sin un mandato moverá el cursor como se especifica en la lista de objetos.
+
+---------------------------------
+UNA EXCEPCIÓN AL 'MANDATO-OBJETO'
+
+Escriba dd para borrar una línea entera.
+
+Escriba 2dd (recuerde  número-mandato-objeto) para borrar las dos líneas.
+
+-------------------
+EL MANDATO DESHACER
+
+Pulse u  para deshacer los últimos mandatos.
+Pulse U  para deshacer una línea entera.
+Para deshacer lo deshecho pulse: CTRL-R
+
+------------------------
+EL MANDATO «PUT» (poner)
+
+Pulse p para poner lo último que ha borrado después del cursor.
+
+--------------------------------
+EL MANDATO «REPLACE» (remplazar)
+
+Pulse  r  y un carácter para sustituir el carácter sobre el cursor.
+
+-----------------------------
+EL MANDATO «CHANGE» (cambiar)
+
+Para cambiar parte de una palabra o toda ella escriba  cw .
+
+--------------------
+MÁS CAMBIOS USANDO c
+
+El mandato change se utiliza con los mismos objetos que delete.
+
+  1. El mandato change funciona de la misma forma que delete. El formato es:
+
+       [número]   c   objeto       O        c   [número]   objeto
+
+  2. Los objetos son tambiém los mismos, tales como  w (palabra), $ (fin de
+     la línea), etc.
+
+-----------------------------------
+SITUACIÓN EN EL FICHERO Y SU ESTADO
+
+Pulse CTRL-g para mostrar su situación en el fichero y su estado.
+
+Pulse MAYU-G para moverse a una determinada línea del fichero.
+
+----------------------------
+EL MANDATO «SEARCH» (buscar)
+
+Pulsando  /  seguido de una frase busca la frase hacia ADELANTE.
+
+Pulsando  ?  seguido de una frase busca la frase hacia ATRÁS.
+
+Para repetir la búsqueda en la misma dirección, pulse  n .
+
+Para buscar la misma frase en la dirección opuesta, pulse Mayu-N .
+
+Cuando la búsqueda alcanza el final del fichero continuará desde el principio.
+
+----------------------------------
+BÚSQUEDA PARA COMPROBAR PARÉNTESIS
+
+Pulse %  para encontrar el paréntesis correspondiente a (,[ o { y viceversa .
+
+----------------------------
+UNA FORMA DE CAMBIAR ERRORES
+
+Para cambiar viejo por nuevo en una línea pulse          :s/viejo/nuevo
+Para cambiar todos los viejo por nuevo en una línea pulse :s/viejo/nuevo/g
+Para cambiar frases entre dos números de líneas pulse  :#,#s/viejo/nuevo/g
+Para cambiar viejo por nuevo en todo el fichero pulse  :%s/viejo/nuevo/g
+Para pedir confirmación en cada caso añada  'c'        :%s/viejo/nuevo/gc
+
+--------------------------------
+CÓMO EJECUTAR UN MANDATO EXTERNO
+
+Escriba  :!  seguido de un mandato externo para ejecutar ese mandato. 
+
+--------------------------
+MÁS SOBRE GUARDAR FICHEROS
+
+Para guardar los cambios hechos en un fichero, escriba  :w NOMBRE_DE_FICHERO.
+
+---------------------------------
+UN MANDATO DE ESCRITURA SELECTIVO
+
+Para guardar parte del fuchero escriba   :#,# NOMBRE_DEL_FICHERO
+
+--------------------------------
+RECUPERANDO Y MEZCLANDO FICHEROS
+
+Para insertar el contenido de un fichero escriba :r NOMBRE_DEL_FICHERO
+
+-------------------------
+EL MANDATO «OPEN» (abrir)
+
+Pulse  o  para abrir una línea debajo del cursor y situarle en modo Insert
+
+Para abrir una línea por encima del cursor, pulse una O mayúscula.
+
+----------------------------
+EL MANDATO «APPEND» (añadir)
+
+Pulse  a  (minúscula) para añadir texto DESPUÉS del carácter que está sobre el cursor. 
+
+A mayúscula añade texto al final de la línea.
+
+-------------------------------------
+OTRA VERSIÓN DE «REPLACE» (remplazar)
+
+Pulse una  R  mayúscula para sustituir más de un carácter.
+
+--------------
+FIJAR OPCIONES
+
+:set ic
+:set hls is
+:set mouse a (activar el mouse)
+:set xxx» fija la opción «xxx»
+
+-------------------------------
+MANDATOS PARA LA AYUDA EN LÍNEA
+
+Utilice el sistema de ayuda en línea
+
+Para activarlo, pruebe una de estas tres formas:
+
+        - pulse la tecla <AYUDA> (si dispone de ella)
+        - pulse la tecla <F1> (si dispone de ella)
+        - escriba   :help <INTRO>
+
+  Escriba   :q <INTRO>   para cerrar la ventana de ayuda.
+
+  Puede encontrar ayuda en casi cualquier tema añadiendo un argumento al
+  mandato «:help» mandato. Pruebe éstos:
+
+  :help w <INTRO>
+  :help c_<T <INTRO>
+  :help insert-index <INTRO>
+
+
+Ver más en : Learning the Vi Editor - por Linda Lamb, Editorial: O'Reilly & Associates Inc.
+
+-------------------
+DIVIDIR LA PANTALLA
+
+Pulse    :sp     para dividir la pantall
+
+--------------
+EDITAR ARCHIVO
+
+Pulse   :e <FILENAME>   para editar un archivo.
+
+-----------------
+EDITAR DIRECTORIO
+
+Pulse   :e .     para recorrer directorios.
+
+----------------------
+CAMBIAR DE SUBPANTALLA
+
+<CONTROL> w      y tecla de desplazamiento.
+
+-------------------------------------------
+Cortar y Copiar
+
+Debemos colocarnos en la primera línea que contiene el texto que nos interesa y pulsar
+
+    el número de líneas a utilizar y
+    si queremos copiarlas (yy) o cortarlas (dd)
+
+Así tenemos que pulsar (todo seguido):
+
+    3yy copia 3 líneas contando aquella en la que nos encontramos.
+    10dd corta 10 líneas a partir de la actual.
+
+Pegar
+
+Una vez realizado el paso anterior sólo tenemos que situarnos donde queremos colocar el texto que hemos copiado (o cortado) y pulsar
+
+    p si queremos pegar DEBAJO de la línea actual.
+    P para pegar ENCIMA de la línea en la que nos encontramos.
+-------------
+Cortar y copiar bloques de líneas
+
+Es más que posible que te resulte incómodo y/o imposible tener que contar cuántas líneas queremos copiar o mover de sitio.
+
+Para evitarlo siempre podemos optar por marcar zonas utilizando el comando m (colócate antes al comienzo del bloque que vas a utilizar) y seguidamente el nombre que queremos darle a la marca.
+
+Así tenemos que:
+
+    mc crearía una marca que identificaremos como c.
+    mp haría lo mismo pero dándole por nombre p.
+
+Colócate al final del bloque de texto que te interesa (ojo, funciona para líneas completas; independientemente de la columna en la que coloques el cursor utilizará 
+toda la línea, por lo que no tiene sentido que te mates ubicándolo: baja hasta donde te interesa y listo) y pulsa:
+
+    y’c para COPIAR (observa la y) el bloque c (podríamos haber hecho lo mismo para el p con y’p)
+    d’p para CORTAR (observa la d) el bloque p
+
+¿Cómo pegar un bloque?
+
+Pues igual que hemos hecho hasta ahora: utilizando p o P según quieras pegar debajo (p) o encima (P) de la línea en la que se encuentra situado el cursor.
+Conclusión
+
+Vi y Vim son unas herramientas muy potentes que requieren un esfuerzo (de memoria ;)) aprender a utilizar en todo su esplendor.
+
+Personalmente he optado por ir aprendiendo aquello que más utilizo y, por tanto, me hace falta en el día a día.
+
+En esta ocasión ha sido el uso del “porta papeles” como medio de duplicar y mover la información existente en cualquier fichero de texto.
+
+Espero que os sea de utilidad a aquellos que, como yo, comenzáis a utilizar este
+
+    extendido (suele venir instalado por defecto en cualquier distribución Linux)
+    potente (no he hecho más que rascar la superficie y ya me siento atraído por él)
+    liviano (ocupa pocos recursos en lo que a memoria y disco se refiere frente a otras soluciones que no hacen ni la mitad que éste)
+    y útil editor.
+
+----------
+Con la rayita (-) del teclado afanumérico (ojo: no la del teclado numérico), se sube de línea al principio de la misma.
+
+------------
+Con la tecla (e) se avanza palabra por palabra.
+
+-------------------
+Control (g) muestra el nombre del archivo, el porcentaje en que está ubicado el cursor y el total de líneas del archivo.
+
+--------
+
+:sp will split the Vim window horizontally. Can be written out entirely as :split.
+
+:vsp will split the Vim window vertically. Can be written out as :vsplit.
+
+Ctrl-w Ctrl-w moves between Vim viewports.
+
+Ctrl-w j moves one viewport down.
+
+Ctrl-w k moves one viewport up.
+
+Ctrl-w h moves one viewport to the left.
+
+Ctrl-w l moves one viewport to the right.
+
+Ctrl-w = tells Vim to resize viewports to be of equal size.
+
+Ctrl-w - reduce active viewport by one line.
+
+Ctrl-w + increase active viewport by one line.
+
+Ctrl-w q will close the active window.
+
+Ctrl-w r will rotate windows to the right.
+
+Ctrl-w R will rotate windows to the left.
+
+http://zalapeach.blogspot.com/
+
+--------
+ Comandos:
+
+    J mayúscula
+    Une la linea donde se ubica el cursor con la siguiente, o todas las lineas que estén seleccionadas en modo visual. 
+    r minúscula
+    Esta tecla junto con otra tecla reemplaza el carácter actual por el carácter que se presiono después de la r minúscula.
+    C mayúscula
+    Es un atajo de c + $, cambia el texto desde la ubicación del cursor hasta el final de la linea.
+    D mayúscula
+    Es un atajo de d + $, borra el texto desde la ubicación del cursor hasta el final de la linea.
+    Y mayúscula
+    Es un atajo de y + y, copia toda la linea.
+    s minúscula
+    Borra el carácter debajo del cursor y entra a modo inserción
+    S mayúscula
+    Borra toda la linea y entra a modo inserción. 
+
+> (mayor que)
+Esta tecla y después haciendo un movimiento indenta la linea o lineas seleccionadas.
+< (menos que)
+Esta tecla desindenta la linea o lineas seleccionadas.
+
+% (porcentaje)
+Esta tecla se mueve entre pares de paréntesis, corchetes y llaves (), [] y {}.
+
+H mayúscula
+Mueve el cursor hacia lo mas alto de la pantalla.
+M mayúscula
+Mueve el cursor a la parte media de la pantalla.
+L mayúscula
+Mueve el cursor a la parte baja de la pantalla.
+
+G mayúscula
+Mueve el cursor a la ultima linea del archivo.
+numero + G mayúscula
+Mueve el cursor hacia el numero de linea indicada.
+- (menos)
+Mueve el cursor a la linea anterior.
++ (mas)
+Mueve el cursor a la linea siguiente.
+
+( (paréntesis que abre)
+Mueve el cursor hacia donde inicia la sentencia actual.
+) (paréntesis que cierra)
+Mueve el cursor hacia donde termina la sentencia actual.
+
+{ (llave que abre)
+Mueve el cursor hacia donde empieza el párrafo.
+} (llave que cierra)
+Mueve el cursor hacia donde termina el párrafo (linea en blanco).
+[[ (dos veces corchete que abre)
+Mueve el cursor a la primera linea y primera columna del texto
+]] (dos veces corchete que cierra)
+Mueve el cursor a la ultima linea y primera columna del texto.
+
+ Marcas.
+Las marcas sirven simplemente para poder regresar a una determinada linea. Supongamos que estas programando y ocupas estar regresando a una determinada linea o función.  En lugar de estar buscando esa función a cada rato, solo le agregas esa marca y la presionas cada vez que la necesites. A continuación explicaremos los comandos básicos para poder hacer eso.
+
+    m + [a - z] (m minúscula seguida de cualquier letra de la a a la z)
+    Asigna una marca a esa linea y columna, así de fácil.
+    ` + [a - z] (acento grave seguido de cualquier letra de la a a la z)
+    Mueve el cursor hacia la linea donde se asigno la marca. Si la letra no tiene asignada una marca, no hace nada.
+    ' + [a + z] (apostrofe seguida de una letra de la a a la z)
+    Mueve el cursor hacia la linea donde se asigno la marca y ubica el cursor en el primer espacio que no este en blanco.
+    ` + . (acento grave seguida de un punto)
+    Mueve el cursor hacia donde se realizo la ultima modificación.
+
+
+
+NOTA: 
+Si asignas una marca con las letras minúsculas  esa marca solo estará para ese archivo en esa sesión de edición, cuando cierres Vim la marca desaparecerá. Esa es una marca local.
+Ahora si asignas una marca con las letras mayúsculas. La marca estará disponible aunque salgas del editor Vim. Al invocarla Vim abrirá el archivo donde se asigno y moverá el cursor hacia donde se asigno esa marca. Esa es una marca global.
+
+
+Macros
+Las macros son como pequeños programas que Vim ejecuta. En ellos puedes poner varias instrucciones y llamarlas fácilmente. Útil cuando estas repitiendo los mismos comandos una y otra vez.
+
+    q + [a -z] (q minúscula seguida de una letra de la a minúscula a la z minúscula) 
+    Empieza a grabar la macro.
+    q (q minúscula)
+    Detiene la grabación de la macro.
+    @ + [ a - z] (arroba seguida de una letra de la a minúscula a la z minúscula)
+    Ejecuta esa macro
+    @@ (doble arroba)
+    Ejecuta la ultima macro ejecutada.
+
+Como buscar palabras:
+
+    / (diagonal) 
+    Es la base para buscar, el texto escrito después de la diagonal Vim lo buscarán. El orden de búsqueda es hacia adelante, es decir de donde se encuentra el cursor 
+    hacia abajo.
+    ? (interrogación)
+    Hace lo mismo que la diagonal... pero el orden de búsqueda es inverso, hacia atrás; es decir desde donde se encuentra el cursor hacia arriba.
+    n (n minúscula)
+    Repite la última búsqueda y mueve el cursor hacia donde se cumpla la búsqueda, hacia adelante.
+    N (N mayúscula)
+    Repite la última búsqueda y mueve el cursor hacia donde se cumpla la búsqueda, pero lo hace hacia atrás.
+
+NOTA: Las búsquedas hechas con / ó ? (diagonal o asterisco) Vim las interpreta como expresiones regulares... 
+
+
+Extras (solo funcionan en Vim):
+
+    * (asterisco)
+    Toma como parámetro de búsqueda la primera palabra a la derecha o la palabra donde el cursor se encuentre. Si la vuelves a presionar mueve el cursor hasta donde se cumpla la busqueda hacia adelante.
+    # (símbolo de gato)
+    hace lo mismo que el asterisco, pero si la vuelves a presionar mueve el cursor hasta donde se cumpla la búsqueda pero hacia atrás.
+
+-----------------
+Como hacer con Vim acciones básicas de copiar y pegar.
+
+Comandos:
+
+    y minúscula
+    Esta tecla seguida de cualquier tecla de movimiento copia el texto desde el cursor hasta donde se indique con la tecla de movimiento. Ejemplos: yw, ye, yb, y0, y$, y^, etc. También copia texto en modo visual (v minúscula, V mayúscula y Ctrl + v minúscula) seguida de y minúscula.
+    p minúscula
+    Esta tecla pega texto a la derecha si no se copiaron lineas completas, y hacia abajo si se copiaron lineas completas. El texto eliminado con d minúscula  c minúscula y x minúscula en todas sus combinaciones también es copiado y puedes posteriormente pegarlo.
+    P mayúscula
+    Esta tecla pega texto a la izquierda si no se copiaron lineas completas, y hacia arriba si se copiaron lineas completas, al igual que con p minúscula el texto eliminado con d minúscula, c minúscula y x minúscula puede ser pegado.
+    yy (dos veces y minúscula)
+    Copia toda la linea donde se encuentra el cursor.
+    o minúscula
+    Entra a modo visual agregando una nueva linea abajo de la linea donde se ubique el cursor.
+    O mayúscula
+    Entra a modo visual agregando una nueva linea arriba de la linea donde se ubique el cursor.
+
+Extras:
+
+    " + a - z (comillas y una letra minúscula de la a a la z)
+    Esta combinación de teclas antes de copiar, borrar o pegar texto escoge un registro.
+    " + A - Z (comillas y una letra mayúscula de la A a la Z)
+    Esta combinación de teclas significa anexar y copiar (append - copy). Esto debe hacerse antes de copiar, borrar o eliminar un registro.
+    " * ó " + (comillas y asterisco o comillas y mas)
+    Esta combinación de teclas selecciona el portapapeles del sistema (en mi caso funciona con comillas y mas) antes de copiar, pegar y borrar texto.
+
+
+ Mas comandos...
+
+    f minúscula
+    Esta tecla junto con otra tecla mueve el cursor hasta donde se encuentra la segunda tecla presionada hacia adelante.
+    F mayúscula
+    Esta tecla junto con otra tecla mueve el cursor hasta donde se encuentra la segunda tecla presionada pero hacia atrás.
+    t minúscula
+    Esta tecla junto con otra tecla mueve el cursor hasta donde se encuentra la segunda tecla presionada hacia adelante pero se detiene a la derecha antes del carácter.
+    T mayúscula
+    Esta tecla junto con otra tecla mueve el cursor hasta donde se encuentra la segunda tecla presionada hacia atrás pero se detiene a la derecha antes del carácter.
+    d minúscula
+    Borra texto, desde el cursor hasta donde se le indique con teclas de movimiento (son aquellas que mueven el cursor). Algunas combinaciones son dw, de, db, dt, df, d0, d^...
+    c minúscula
+    Borra texto, desde el cursor hasta donde se le indique con teclas de movimiento, pero te deja en modo edición después de eliminar texto.
+    . (punto)
+    Repite la ultima acción de edición: entrada de texto, eliminar o reemplazar, etc... El movimiento es recalculado en el nuevo lugar.
+
+Algunos extras:
+
+    d - número - w (d minúscula seguida de un número y w minúscula)
+    Elimina el número de palabras definidas por el usuario.
+    d - numero - t - algún carácter (d minúscula seguida de un numero, una t minúscula y algún carácter presionado)
+    Elimina todo hasta donde se repita n veces el carácter presionado después de t minúscula sin incluirlo en la eliminación.
+    2 - i (dos i minúscula)
+    Repite el texto escrito después de presionar Esc para terminar la sesión de edición.
+    c - c (dos veces c minúscula)
+    Elimina la linea donde esta el cursor y te deja en modo edición.
+    d - d (dos veces d minúscula)
+    Elimina toda la linea donde esta el cursor.
+    V mayúscula
+    Entra a modo visual (solo en Vim) y selecciona lineas completas moviéndote hacia arriba o hacia abajo.
+    v minuscula
+    Entra a modo visual (solo en Vim) y hacia donde te muevas ese texto se selecciona.
+    Ctrl - v minuscula
+    Entra a modo visual (solo en Vim) y se seleccionan bloques rectangulares.
+
+---
+: Sp nombre de archivo
+
+Esto abrirá el nombre de archivo en la nueva ventana gráfica. Incluso puede agregar una cadena de búsqueda a la que se mueva directamente a la primera instancia de una palabra clave, así:
+
+: Sp + / searchstringfilename
+
+Puede aumentar o disminuir el tamaño de una ventana gráfica después de haberla creado. Utilice Ctrl + w para aumentar la ventana activa y Ctrl + w para disminuir su tamaño en una línea. Si una línea a la vez no es suficiente, agregue un modificador antes de + o -. Por ejemplo, para agregar 13 líneas, utilice Ctrl-w 13+.
+
+Si las ventanas horizontales simplemente no lo hacen por usted, Vim también admite la división de ventanas gráficas verticalmente. Para ello, utilice: vsp, o: vsplit si prefiere escribirlo. El movimiento entre las vistas verticales es similar al movimiento entre las vistas horizontales. Ctrl-w Ctrl-w funciona, y en lugar de utilizar las teclas de movimiento j y k, utilice las teclas de movimiento h y l para moverse hacia adelante y atrás entre las ventanas de visualización. Para desplazarse a la ventana de visualización a la derecha, por ejemplo, utilizaría Ctrl-w l.
+
+También vale la pena mencionar que puede abrir un archivo en una ventana de visualización sólo para ver el archivo, sin abrirlo para editar. Para ello, utilice el comando: sview filename. Para hacerlo verticalmente, use: vert sview filename.
+
+Puede cerrar una ventana de varias maneras. Lo más fácil es simplemente usar el comando quit,: q, o puede usar Ctrl-w q. Tenga en cuenta que si es la única ventana abierta con un archivo, Vim le pedirá que guarde el archivo si aún no lo ha guardado.
+
+
+
+	Moverse hasta el fin de la línea			- $
+	Moverse hasta el principio de la línea			- 0
+	Moverse hasta la siguiente palabra			- w
+	Moverse hasta la anterior palabra			- b
+	Moverse hasta la siguiente palabra*			- W
+	Moverse hasta la anterior palabra*			- B
+	Moverse a la línea n***					- nG
+	Moverse hasta el final de la siguiente palabra		- e
+	Moverse hasta el final de la siguiente palabra* 	- E
+	Encontrar el siguiente caracter c en la línea actual	- fc
+	Encontrar el anterior caracter c en la línea actual	- Fc
+	Llegar hasta justo antes del siguiente caracter c	- t
+	Llegar hasta justo después del anterior caracter c	- T
+	Encontrar el paréntesis contrario**			- %
+	Moverse hasta la siguiente frase			- (
+	Moverse hasta la anterior frase				- )
+	Moverse hasta el anterior párrafo			- {
+	Moverse hasta el siguiente párrafo			- }
+	Moverse hasta la parte superior de la pantalla		- H
+	Moverse hasta la parte media de la pantalla		- M
+	Moverse hasta la parte inferior de la pantalla		- L
+	Avanzar página						- ^F
+	Retroceder página					- ^B
+
+
+
+	Insertar después del caracter actual			- a
+	Insertar al final de la línea				- A
+	Insertar antes del primer caracter blanco de la línea	- I
+	Añadir línea por debajo e insertar texto		- o
+	Añadir línea por arriba e insertar texto		- O
+
+	Borrar (delete)		- d
+	Cambiar (change)	- c
+	Copiar (yank)		- y
+
+	Deshacer el último cambio				- u
+	Deshacer todos los cambios de la línea actual		- U
+	Redibujar la pantalla					- ^L
+	Ver información del archivo actual			- ^G
+	Reemplazar un caracter					- r
+	Sobreescribir texto					- R
+	Borrar el caracter actual y entrar en modo inserción	- s
+	Cambiar la línea actual*				- S
+	Cambiar entre mayúsculas y minúsculas			- ~
+	Borrar texto (como el BackSpace)			- X
+	(Sólo en vim) marcar bloque				- v, V, ^V
+	Buscar texto						- /texto
+	Repetir última búsqueda					- n
+	Repetir última búsqueda en dirección contraria		- N
+	Repetir última búsqueda hacia abajo			- /
+	Repetir última búsqueda hacia arriba			- ?
+	Repetir último cambio					- .
+	Siguiente palabra (Modo inserción) **			- ^N
+	Anterior palabra (Modo inserción) **			- ^P
+	Indentación inteligente					- :set si
+
+
+
+	Marcar bloque visual					- v
+	Marcar bloque visual (por líneas completas)		- V
+	Marcar bloque visual (un bloque rectangular)		- ^V
+	Ir a la primera línea					- gg
+	Formatear párrafo[*]					- gqorden
+	Buscar una palabra (en la ayuda, o en el man)[**] 	- K
+	Deshacer (ahora es multinivel)				- u
+	Rehacer							- ^R
+
+ZZ
+    Escribir el archivo sólo si se han realizado modificaciones, luego salir. Esta expresión se utiliza con frecuencia para salir de vi de forma normal.
+
+:!
+    Ejecute un comando shell. Tipee el comando y presione Enter. Cuando el comando finalice, verá los datos de salida y un aviso para volver al editor vi.
+
+vi - mostrar números de líneas
+
+Siempre que quiera mostrar números de línea en vi o vim, utilizo el comando vi "set number". Para mostrar números de línea en vi, utilice este comando:
+
+:set number
+
+Y para ocultar números de línea en vi, utilice este comando:
+
+:set nonumber
+
+
+
+
+ Set                    Default	                Description
+:set ai	                noai	                Turns on auto indentation
+:set all	        --	                Prints all options to the screen
+:set ap	                aw      	        Prints line after d c J m :s t u commands
+:set aw	                noaw    	        Automatic write on :n ! e# ^^ :rew ^} :tag
+:set bf	                nobf	                Discards control characters from input
+:set dir=tmp	        dir = /tmp	        Sets tmp to directory or buffer file
+:set eb	                noed	                Precedes error messages with a bell
+:set ed	                noed	                Precedes error messages with a bell
+:set ht=	        ht = 8	                Sets terminal hardware tabs
+:set ic	                noic	                Ignores case when searching
+:set lisp	        nolisp	                Modifies brackets for Lisp compatibility.
+:set list	        nolist	                Shows tabs (^l) and end of line ($)
+:set magic	        magic	                Allows pattern matching with special characters
+:set mesg 	        mesg	                Allows others to send messages
+:set nooption		                Turns off option
+:set nu	                nonu	                Shows line numbers
+:set opt	        opt	                Speeds output; eliminates automatic RETURN
+:set para=	        para = LIlPLPPPQPbpP	macro names that start paragraphs for { and } operators
+:set prompt	        prompt	                Prompts for command input with :
+:set re	                nore	                Simulates smart terminal on dumb terminal
+:set remap	        remap	                Accept macros within macros
+:set report	        noreport	        Indicates largest size of changes reported on status line
+:set ro	                noro	                Changes file type to "read only"
+:set scroll=n	        scroll = 11	        set n lines for CTRL-d and z
+:set sh=shell_path	sh = /bin/sh	        set shell escape (default is /bin/sh) to shell_path
+:set showmode	        nosm	                Indicates input or replace mode at bottom
+:set slow	        slow	                Pospone display updates during inserts
+:set sm	                nosm	                Show matching { or ( as ) or } is typed
+:set sw=n	        sw = 8	                Sets shift width to n characters
+:set tags=x	        tags = /usr/lib/tags	Path for files checked for tags (current directory included in default)
+:set term	        $TERM	                Prints terminal type
+:set terse	        noterse	                Shorten messages with terse
+:set timeout		                        Eliminates one-second time limit for macros
+:set tl=n	        tl = 0	                Sets significance of tags beyond n characters (0 means all)
+:set ts=n	        ts = 8	                Sets tab stops to n for text input
+:set wa	                nowa	                Inhibits normal checks before write commands
+:set warn	        warn		        Warns "no write since last change"
+:set window=n	        window = n	        Sets number of lines in a text window to n
+:set wm=n	        wm = 0	                Sets automatic wraparound n spaces from right margin.
+:set ws	ws	                                Sets automatic wraparound n spaces from right margin.
+
+
+
+http://docs.oracle.com/cd/E19620-01/805-7644/6j76klopa/index.html
+http://zalapeach.blogspot.com/

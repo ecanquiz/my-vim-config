@@ -1,0 +1,294 @@
+https://byte-mind.net/uso-y-configuracion-del-editor-vim/
+https://www.busindre.com/configuracion_minima_obligatoria_para_vim_.vimrc
+https://www.it-swarm.dev/es/vim/donde-esta-mi-archivo-.vimrc/1066558733/
+
+*Movimiento del cursor:
+Un caracter hacia:
+    h = la izquierda
+    l = la derecha
+    j = abajo
+    k = arriba
+Hacia principio de una palabra :
+    w = la derecha
+    b = la izquierda
+Hacia final de una palabra :
+    e = la derecha
+Hacia el final de la línea
+    0 = la izquierda
+    $ = la derecha
+
+*Modos
+INSERT (posición del cursor)
+i = antes del caracter
+a = despues del caracter 
+A = al final de la línea
+s = borrando el caracter posicionado
+
+*Busca la definición
+gd = de la variable, función o propiedad, etc
+gf = en archivo include o required (solo en vim)
+control + o = regresa hacia atras (solo en vim)
+control + i = vuelve hacia delante (solo en vim)
+
+*Eliminar
+x =  caracter
+d$ = resto de la línea hacia adelante 
+dw = resto de palapra hacia adelante sin dejar espacio en blanco
+de = resto de palapra hacia adelante dejando un espacio en blanco
+db = resto de palapra hacia atrás 
+d2w = resto de 2 palapras hacia adelante sin dejar espacio en blanco
+d3w = resto de 3 palapras hacia adelante sin dejar espacio en blanco
+d"N"w = resto de "N" palapras hacia adelante sin dejar espacio en blanco
+Nota: Esto aplica para todos los operadores
+dd = la línea y la copia en el clipboar
+
+*Pegar
+p = lo que está en el clipboar en la línea de abajo del cursor
+P = lo que está en el clipboar en la línea de arriba del cursor
+
+*Deshacer
+u
+
+Rehacer
+Control + r
+
+*Buscar
+Posición del cursor hacia adelante
+/ + argumento + enter
+Posición del cursor hacia atrás
+? + argumento + enter
+n = sigue buscando
+N = regresar busqueda
+
+*Remplazar
+r = para remplazar caracter posicionado
+R = cambiar a modo remplazar
+
+*Operador de cambio
+c = selección
+cw = resto de palabra
+ciw = palabra
+
+*Sustituir
+:%s/argOld/argNew = una coincidencia
+:%s/argOld/argNew/g = todas las coincidencias 
+:%s/argOld/argNew/gc = todas las coincidencias confirmadas
+
+*Saltar en el archivo
+control + g = ver en que línea está parado el cursor
+gg = comienzo del archivo
+G = final del archivo
+16G = mover el cursor a la línea 16
+
+*Saltando parentesis, corchetes y/o llaves
+% = match
+
+
+*Abrir una nueve línea
+o = por debajo del cursor (si la línea está comentada continua hacia abajo comentada también)
+O = por arriba del cursor (si la línea está comentada continua hacia arriba comentada también)
+
+v = Modo visual
+
+y = copiar
+p = pegar despues del cursor
+P = pegar antes de cursor
+
+
+---------------------------------
+---------------------------------
+---------------------------------
+
+Configuración:
+
+Para vim
+
+$ cat /usr/share/vim/vim80/defaults.vim > $HOME/.vimrc
+user:~$ vi .vimrc
+
+set number
+set mouse=a
+set numberwidth=1
+set clipboard=unnamed
+syntax enable
+set showcmd
+set ruler
+set encoding=utf-8
+set showmatch
+set sw=2
+set relativenumber
+ser laststatus=2
+"set noshowmode
+
+--------------------------------
+-------------------------------
+-----------------------------
+Intalar manejador de plugin:
+
+url: https://github.com/junegunn/vim-plug
+
+user:~$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+user:~$ vi .vimrc
+
+call plug#begin('~/.vim/plugged')
+
+" Temas
+Plug 'morhetz/gruvbox'
+
+call plug#end()
+
+user:~$ vi .vimrc
+
+:Plug+Tap = Abrir el menú
+
+Seleccionar: PlugInstall
+
+Desues de installar el plugin:
+
+user:~$ vi .vimrc
+
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = "hard"
+
+--------------------------------------------
+--------------------------------------------
+--------------------------------------------
+
+set number
+set mouse=a
+set numberwidth=1
+set clipboard=unnamed
+syntax enable
+set showcmd
+set ruler
+set cursorline
+set encoding=utf-8
+set showmatch
+set sw=2
+set relativenumber
+ser laststatus=2
+"set noshowmode
+
+call plug#begin('~/.vim/plugged')
+
+" Temas
+Plug 'morhetz/gruvbox'
+
+" IDE
+Plug 'easymotion/vim-easymotion'
+
+call plug#end()
+
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = "hard"
+
+let mapleader=" "
+
+nmap <Leader>s <Plug>(easymotion-s2)
+
+Luego Salir ye ejecutar:
+-----------------
+
+user:~$ vi .vimrc
+
+:Plug+Tap = Abrir el menú
+
+Seleccionar: PlugInstall
+
+/////////////////
+
+profesor:
+@_nasch_
+www.nicolas-schurmann.com
+alumnos
+/////////////////////
+https://github.com/pangloss/vim-javascript
+https://vuejsexamples.com/vim-syntax-highlighting-for-vue-components/
+https://github.com/posva/vim-vue
+https://github.com/leafOfTree/vim-vue-plugin
+https://morioh.com/p/5bf708b8efcb
+
+:sp fichero           Divide la ventana horizontalmente y abre el fichero indicado.
+:vsp fichero          Divide la ventana verticalmente y abre el fichero indicado.
+ 
+Ctrl+ws                            Divide la ventana en dos de forma horizontal (:sp).
+Ctrl+wv                            Divide la ventana en dos verticalmente (:vsp)
+Ctrl+ww  /  Ctrl+w+"Tecla cursor"  Desplazarse entre ventanas (splits / vimdiff / etc).
+Ctrl+wq                            Cierra la ventana.      
+ 
+Ctrl+w+10> / Ctrl+w+10<            Modificación en 10 puntos el tamaño de ventanas verticales.
+Ctrl+w+10+ / Ctrl+w+10-            Modificación en 10 puntos el tamaño de ventanas horizontales.
+ 
+Ctrl+w=                            Iguala el tamaño de todas las ventanas.
+Ctrl+w|                            Aumenta todo lo posible la ventana horizontalmente.
+Ctrl+w_                            Aumenta todo lo posible la ventana verticalmente.
+ 
+ 
+# Efecto Zoom en ventanas con Vim.
+# Poner una ventana en primer plano sin perder las ventanas: El truco es abrir una pestaña con dicho buffer, hacer lo que sea con ella y luego cerrarla para volver a la particion de ventanas anterior.
+ 
+:tabedit %     Arranca el buffer en una pestaña nueva.
+:tabclose      Cierra la ventana.
+ 
+Ctrl+wo        Deja la ventana en primer plano y elimina el resto de ventanas.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

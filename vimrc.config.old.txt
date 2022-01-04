@@ -1,0 +1,50 @@
+"set shell=/bin/bash
+set nocompatible
+filetype off
+set number
+set mouse=a
+set numberwidth=1
+set clipboard=unnamed
+syntax enable
+set showcmd
+set ruler
+set cursorline
+set encoding=utf-8
+set showmatch
+set sw=2
+set relativenumber
+set laststatus=2
+set paste
+set hlsearch
+"set noshowmode
+
+"START VUE
+" user:~$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" user:~$ cd ~/.vim/bundle && \
+" git clone https://github.com/posva/vim-vue.git
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'posva/vim-vue'
+call vundle#end()            
+filetype plugin indent on
+"END VUE
+
+call vundle#begin()
+  Plugin 'preservim/nerdtree'
+call vundle#end()  
+ 
+"Plugin 'storyn26383/vim-vue'
+
+
+" colorscheme gruvbox
+" let g:gruvbox_contrast_dark="hard"
+let NERDTreeQuitOnOpen=1
+
+let mapleader=" "
+nmap <Leader>s <Plug>(easymotion-s2)
+nmap <Leader>nt :NERDTreeFind<CR>
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+nmap <Leader>wq :wq<CR>
+nmap <silent> ,/ :nohlsearch<CR>
+
